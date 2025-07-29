@@ -86,8 +86,16 @@ with st.expander("🔄 Alteração Registro"):
     with col13:
         nova_posicao = st.text_input('Nova Posição:')
     with col14:
-        novo_status = st.text_input('Novo Status:')
-
+        novo_status = st.selectbox("Status", [
+                "Pronta para Aluguel",
+                "Em Manutenção",
+                "Aguardando Pendência",
+                "BO Roubo",
+                "Em Trânsito",
+                "Recebida",
+                "Apreendida",
+                "Suporte Rua"
+            ])
     if st.button('Alterar'):
         df = st.session_state.registros
         index_match = df[df['Placa'] == placa_alterada].index
